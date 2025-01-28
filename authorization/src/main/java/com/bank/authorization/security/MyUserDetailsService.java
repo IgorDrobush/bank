@@ -1,4 +1,4 @@
-package com.bank.authorization.service;
+package com.bank.authorization.security;
 
 import com.bank.authorization.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;

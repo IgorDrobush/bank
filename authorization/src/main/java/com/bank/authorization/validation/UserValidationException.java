@@ -1,4 +1,4 @@
-package com.bank.authorization.service.validation;
+package com.bank.authorization.validation;
 
 public class UserValidationException extends Exception {
     public UserValidationException(String message) {

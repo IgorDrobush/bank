@@ -1,4 +1,4 @@
-package com.bank.authorization.service.validation;
+package com.bank.authorization.validation;
 
 import com.bank.authorization.model.User;
 import org.springframework.stereotype.Component;

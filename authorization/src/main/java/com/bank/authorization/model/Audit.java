@@ -1,4 +1,4 @@
-package com.bank.authorization.model.entity;
+package com.bank.authorization.model;
 
 import jakarta.persistence.*;
 

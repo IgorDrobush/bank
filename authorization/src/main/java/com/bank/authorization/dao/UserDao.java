@@ -1,20 +1,20 @@
-package ru.kata.spring.boot_security.demo.dao;
+package com.bank.authorization.dao;
 
-import ru.kata.spring.boot_security.demo.model.User;
+import com.bank.authorization.model.User;
 
 import java.util.List;
 
 public interface UserDao {
 
-    void saveUser(User user);
+    List<User> getAllUsers();
 
-    void deleteUser(User user);
+    User getUserByProfileId(long id);
+
+    void createUser(User user);
 
     User findUserById(long id);
 
-    User findUserByUsername(String username);
-
     void updateUser(User user, User userToUpdate);
 
-    List<User> getAllUsers();
+    void deleteUser(User user);
 }

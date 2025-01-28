@@ -1,10 +1,9 @@
-package ru.kata.spring.boot_security.demo.dao;
+package com.bank.authorization.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import com.bank.authorization.model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
-import ru.kata.spring.boot_security.demo.model.User;
-
 import java.util.List;
 
 @Repository
@@ -18,7 +17,20 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void saveUser(User user) {
+    public List<User> getAllUsers() {
+        return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
+    }
+
+    @Override
+    public User getUserByProfileId(long id) {
+        String query = "SELECT u FROM User u WHERE u.profileId = :profile_id";
+        return entityManager.createQuery(query, User.class)
+                .setParameter("profile_id", id)
+                .getSingleResult();
+    }
+
+    @Override
+    public void createUser(User user) {
         entityManager.persist(user);
     }
 
@@ -28,28 +40,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findUserByUsername(String username) {
-        String query = "SELECT u FROM User u JOIN FETCH u.roles WHERE u.username = :username";
-        return entityManager.createQuery(query, User.class)
-                .setParameter("username", username)
-                .getSingleResult();
+    public void updateUser(User user, User userToUpdate) {
+        userToUpdate.setRole(user.getRole());
+        userToUpdate.setProfileId(user.getProfileId());
+        userToUpdate.setPassword(user.getPassword());
     }
 
     @Override
     public void deleteUser(User user) {
         entityManager.remove(user);
-    }
-
-    @Override
-    public void updateUser(User user, User userToUpdate) {
-        userToUpdate.setUsername(user.getUsername());
-        userToUpdate.setPassword(user.getPassword());
-        userToUpdate.setRoles(user.getRoles());
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        return entityManager.createQuery("SELECT u FROM User u", User.class)
-                .getResultList();
     }
 }

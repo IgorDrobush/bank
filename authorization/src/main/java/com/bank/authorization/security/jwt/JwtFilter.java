@@ -1,4 +1,4 @@
-package com.bank.authorization.service.jwt;
+package com.bank.authorization.security.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

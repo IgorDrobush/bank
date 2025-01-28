@@ -1,8 +1,8 @@
-package com.bank.authorization.service;
+package com.bank.authorization.mapper;
 
-import com.bank.authorization.model.entity.User;
-import com.bank.authorization.model.dto.UserRequestDto;
-import com.bank.authorization.model.dto.UserResponseDto;
+import com.bank.authorization.model.User;
+import com.bank.authorization.dto.UserRequestDto;
+import com.bank.authorization.dto.UserResponseDto;
 import org.mapstruct.Mapper;
 
 @Mapper

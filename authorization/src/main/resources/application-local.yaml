@@ -4,7 +4,7 @@ server:
     context-path: /api/authorization
 management:
   server:
-    port: 8187
+    port: 8287
   endpoint:
     shutdown:
       enabled: true
@@ -14,9 +14,17 @@ management:
         include: '*'
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: user
+    url: jdbc:postgresql://localhost:6666/postgres
+    username: postgres
     password: password
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: authorization
   liquibase:
     default-schema: authorization
     change-log: db/changelog/db.changelog-master.yaml
@@ -24,3 +32,13 @@ spring:
     drop-first: false
   application:
     name: authorization-app
+eureka:
+  client:
+    enabled: false
+logging:
+  level:
+    org:
+      springdoc: DEBUG
+      hibernate:
+        SQL: DEBUG
+#        type: TRACE

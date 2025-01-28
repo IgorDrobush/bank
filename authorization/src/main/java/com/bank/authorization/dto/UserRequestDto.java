@@ -1,4 +1,4 @@
-package com.bank.authorization.model.dto;
+package com.bank.authorization.dto;
 
 public class UserRequestDto {
     public String role;

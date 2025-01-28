@@ -1,18 +1,21 @@
-package ru.kata.spring.boot_security.demo.service;
+package com.bank.authorization.service;
 
-import ru.kata.spring.boot_security.demo.model.User;
+import com.bank.authorization.dto.AuthRequestDto;
+import com.bank.authorization.dto.UserRequestDto;
+import com.bank.authorization.dto.UserResponseDto;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface UserService {
 
-    void saveUser(User user);
+    List<UserResponseDto> getAllUsers();
 
-    User findUserById(long id);
+    String createUser(UserRequestDto userRequestDto);
 
-    void deleteUserById(long id);
+    String updateUser(Long id, UserRequestDto userRequestDto);
 
-    void updateUser(User user);
+    void deleteUser(Long id);
 
-    List<User> getAllUsers();
+    public ResponseEntity<String> login(AuthRequestDto authRequestDto);
 }

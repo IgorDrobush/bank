@@ -1,4 +1,4 @@
-package com.bank.authorization.config;
+package com.bank.authorization.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package com.bank.authorization.service;
+package com.bank.authorization.aspect;
 
 import com.bank.authorization.dao.AuditDao;
 import com.bank.authorization.model.Audit;

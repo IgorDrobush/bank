@@ -1,6 +1,6 @@
-package com.bank.authorization.config;
+package com.bank.authorization.security;
 
-import com.bank.authorization.service.jwt.JwtFilter;
+import com.bank.authorization.security.jwt.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
